@@ -1,4 +1,13 @@
 
+html {
+    background-color: blue;
+}
+
+body {
+    background-color: blueviolet;
+}
+
+
 p {
     background-color: steelblue;
     color: lightslategray;
