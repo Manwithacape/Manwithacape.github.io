@@ -6,11 +6,14 @@ html {
 }
 
 body {
-    background-image: url("Pukeko_chicks.JPG");
+    background-image: url(Pukeko_chicks.JPG);
     background-repeat: no-repeat;
     background-color: blueviolet;
-    min-height: 300px;
+    min-height: 1000px;
     padding: 1em;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
 }
 
 
@@ -19,4 +22,11 @@ p {
     color: lightslategray;
     margin: 1em;
     padding: 1em;
+}
+
+
+
+content {
+    background-color: lightblue;
+    opacity: 0.6;
 }
