@@ -1,27 +1,86 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
+        
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Manwithacape</title>
+        <title>Daniel Paxton</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
     </head>
+
     <body>
+        <div class="frame">
+        <header class="glass">
+            <h1>Daniel Paxton</h1>
+        </header>
+
+        <iframe src="/game/index.html" ></iframe>
+        <div class="bento glass">
+            <a id="FacebookLink" class="card3d" href="https://www.facebook.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Plains" width="360"></a>
+            <div class="card3d"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/480px-LinkedIn_logo_initials.png" alt="Island" width="180"></div>
+            <div class="card3d"><img src="https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731_640.png" alt="Plains" width="180"></div>
+            <div class="card3d"><img src="https://static-00.iconduck.com/assets.00/gitlab-original-wordmark-icon-256x255-5by1gtgp.png" alt="Plains" width="180"></div>
+            <div class="card3d"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Plains" width="180"></div>
+            <div class="card3d"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Plains" width="180"></div>
+        </div>
         
-        <content>
-            <h1>TITLE</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </content>
+        <script scr="Manwithacape.github.io\scripts\main.js"></script>
+        <script>
+            function map(val, minA, maxA, minB, maxB) {
+            return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
+        }
+        
+        /**
+         * Applies a 3D transformation effect to a card element based on mouse position.
+         * @param {HTMLElement} card - The card element to apply the 3D effect to.
+         * @param {MouseEvent} ev - The mouse event object containing the mouse position.
+         */
+        function Card3D(card, ev) {
+            let img = card.querySelector('img');
+            let imgRect = card.getBoundingClientRect();
+            let width = imgRect.width;
+            let height = imgRect.height;
+            let mouseX = ev.offsetX;
+            let mouseY = ev.offsetY;
+            let rotateY = map(mouseX, 0, height, -25, 25);
+            let rotateX = map(mouseY, 0, width, 25, -25);
+            let brightness = map(mouseY, 0, height*0.9, 1.5, 0.5);
+            
+            img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            img.style.filter = `brightness(${brightness})`;
+        }
+        
+        var cards = document.querySelectorAll('.card3d');
 
+        //print hello wolrd to the console
+            console.log("Hello World");
+        
+        cards.forEach((card) => {
+            card.addEventListener('mousemove', (ev) => {
+            Card3D(card, ev);
+            });
+            
+            card.addEventListener('mouseleave', (ev) => {
+            let img = card.querySelector('img');
+            
+            img.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            img.style.filter = 'brightness(1)';
+            });
+        });
+        </script>
+
+
+        <script src="https://cjrtnc.leaningtech.com/3.0rc2/cj3loader.js">
+        await cheerpjInit();
+        const lib = await cheerpjRunLibrary("http://127.0.0.1:5500/jsjvm_helloworld.jar");
+
+        const Example = await lib.com.example.Example;
+        const example = await new Example();
+        await example.hello(); 
+        </script>
+        </div>
     </body>
 </html>

@@ -1,32 +1,132 @@
-
 html {
-    background-color: blue;
-    margin: 0px;
-    padding: 0px;
-}
-
-body {
-    background-image: url(Pukeko_chicks.JPG);
-    background-repeat: no-repeat;
-    background-color: blueviolet;
-    min-height: 1000px;
-    padding: 1em;
-    background-attachment: fixed;
-    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    color: white;
     margin: 0;
+    padding: 0;
+    background: rgb(84,92,97);
+    background: radial-gradient(circle, rgb(36, 36, 36) 0%, rgb(12, 49, 63) 100%); 
+  }
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    font-size: 1.17em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h4 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h5 {
+    font-size: 0.83em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h6 {
+    font-size: 0.67em;
+    margin: 0;
+    padding: 0;
+  
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* background-image: url("Pukeko_chicks.JPG"); */
+    background: rgb(84,92,97);
+    background: radial-gradient(circle, rgb(36, 36, 36) 0%, rgb(12, 49, 63) 100%); 
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
 
-
-p {
-    background-color: steelblue;
-    color: lightslategray;
-    margin: 1em;
+  .glass {
+    /* From https://css.glass */
+    background: rgba(125, 212, 212, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.2px);
+    -webkit-backdrop-filter: blur(9.2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 1em;
-}
+    margin: 1em;
+  }
+  
+  .card3d {
+    transform: scale(1);
+    perspective: 600px;
+  }
+  
+  .card3d:hover {
+    z-index: 10;
+    transform: scale(1.3);
+  }
+  
+  .card3d,
+  .card3d img {
+    transition: all 250ms ease-out;
+  }
 
+  .card3d img {
+    border-radius: 16px;
+    object-fit: cover;
+  }
 
+  script {
+    display: none;
+  }
 
-content {
-    background-color: lightblue;
-    opacity: 0.6;
-}
+  .bento {
+    /* From https://css.glass */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #FacebookLink {
+    display: flex;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  #FacebookLink img {
+    border-radius: 16px;
+    object-fit: fill;
+  }
+
+  iframe {
+    min-width: 100%;
+    scale: 1;
+
+    scroll-behavior: none;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    object-fit: fill;
+  }
