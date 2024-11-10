@@ -1,90 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <title>🇳🇿 Daniel Paxton's Website</title>
+        <link rel="icon" href="images/nz-flag.png" type="image/png">
+        <meta name="lang" content="en">
         
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Daniel Paxton</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <script src="scripts/main.js"></script>
     </head>
 
     <body>
-        <div class="frame">
-        <header class="glass">
+        <header class="header-full">
             <h1>Daniel Paxton</h1>
+            <nav>
+                <ul id="links">
+                    <li><a href="index.html" class="social-link"><img src="icons/black/LinkedIN_black.png"></a></li>
+                    <li><a href="index.html" class="social-link"><img src="icons/black/Facebook_black.png"></a></li>
+                    <li><a href="index.html" class="social-link"><img src="icons/black/Github_black.png"></a></li>
+                    <li><a href="index.html" class="social-link"><img src="icons/black/Gmail_black.png"></a></li>
+                </ul>
+            </nav>
         </header>
-
-        <div #spag-coder class="glass">
-            <h2>Spaghetti Coder</h2>
-            <p>How long can you code before SPAGHETTI touches your CPU or RAM?</p>
-            <iframe id="" src="/game_spag/index.html" name="" width="640" height="480" frameborder="0" marginheight="0" scrolling="no"></iframe>
+        
+        <div id="hero">
+            <img class="hero-image" src="images/Daniel-Paxton-nbg.png" alt="Daniel Paxton">
+            <div id="hero-text">
+                <h1 class="text-shadow">Daniel Paxton</h1>
+                <h2 class="text-shadow">Computer Scientist</h2>
+            </div>
         </div>
-        <div class="bento glass">
-            <a id="FacebookLink" class="card3d" href="https://www.facebook.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Plains" width="360"></a>
-            <div class="card3d"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/480px-LinkedIn_logo_initials.png" alt="Island" width="180"></div>
-            <div class="card3d"><img src="https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731_640.png" alt="Plains" width="180"></div>
-            <div class="card3d"><img src="https://static-00.iconduck.com/assets.00/gitlab-original-wordmark-icon-256x255-5by1gtgp.png" alt="Plains" width="180"></div>
-            <div class="card3d"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Plains" width="180"></div>
-            <div class="card3d"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Plains" width="180"></div>
-        </div>
+
+        <main> 
+            <section id="about"> 
+                <h1 class="section-header">About Me</h1>
+                <div id="about-content">    
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis recusandae dolorem eum modi harum, corporis placeat, tempora adipisci quos repudiandae nisi reprehenderit omnis! Necessitatibus, dolorem asperiores quasi aspernatur ad sed? <br><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis recusandae dolorem eum modi harum, corporis placeat, tempora adipisci quos repudiandae nisi reprehenderit omnis! Necessitatibus, dolorem asperiores quasi aspernatur ad sed? <br><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis recusandae dolorem eum modi harum, corporis placeat, tempora adipisci quos repudiandae nisi reprehenderit omnis! Necessitatibus, dolorem asperiores quasi aspernatur ad sed? <br><br>
+
+
+                    </p>
+                    <img id="about-img" src="images/Daniel-Paxton-bird.JPG" alt="Daniel Paxton Holding a pidgeon">
+                </div>
+            </section>
+
+            <section id="values">
+                <h1 class="section-header">My Values</h1>
+                <p>I value trust, honesty, and forgiveness. <br><br>
+                    I value my trust in other and their trust in me. Through this trust we can contributte our full energy into creating amazing things. <br><br>
+                    I value honesty with people and their honisty with me. We must be honest when our own trust has been broken, and when we have broken the trust of others. <br><br>
+                    I value forgiveness. We must be able to forgive others when they have broken our trust, and we must be able to forgive ourselves when we have broken the trust of others. With fogiveness we can begin to trust again, and being to create amzing things<br><br>
+                </p>
+            </section>
+
+            <section id="projects">
+                <h1 class="section-header">My Projects</h1>  
+                <p>Here are some of the awesome projects that I have created:</p> 
+            </section>
+
+            <section id="contact">
+                <h1 class="section-header">Contact Me</h1>
+                <p>If you would like to get in touch with me, please send me an email at <a href="mailto: paxtondtwo@gmail.com"> paxtondtwo@gmail.com</a></p>
+            </section>
+        </main>
+
         
 
-        <script scr="Manwithacape.github.io\scripts\main.js"></script>
-        <script>
-            function map(val, minA, maxA, minB, maxB) {
-            return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
-        }
-        
-        /**
-         * Applies a 3D transformation effect to a card element based on mouse position.
-         * @param {HTMLElement} card - The card element to apply the 3D effect to.
-         * @param {MouseEvent} ev - The mouse event object containing the mouse position.
-         */
-        function Card3D(card, ev) {
-            let img = card.querySelector('img');
-            let imgRect = card.getBoundingClientRect();
-            let width = imgRect.width;
-            let height = imgRect.height;
-            let mouseX = ev.offsetX;
-            let mouseY = ev.offsetY;
-            let rotateY = map(mouseX, 0, height, -25, 25);
-            let rotateX = map(mouseY, 0, width, 25, -25);
-            let brightness = map(mouseY, 0, height*0.9, 1.5, 0.5);
-            
-            img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            img.style.filter = `brightness(${brightness})`;
-        }
-        
-        var cards = document.querySelectorAll('.card3d');
-
-        //print hello wolrd to the console
-            console.log("Hello World");
-        
-        cards.forEach((card) => {
-            card.addEventListener('mousemove', (ev) => {
-            Card3D(card, ev);
-            });
-            
-            card.addEventListener('mouseleave', (ev) => {
-            let img = card.querySelector('img');
-            
-            img.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            img.style.filter = 'brightness(1)';
-            });
-        });
-        </script>
-
-
-        <script src="https://cjrtnc.leaningtech.com/3.0rc2/cj3loader.js">
-        await cheerpjInit();
-        const lib = await cheerpjRunLibrary("http://127.0.0.1:5500/jsjvm_helloworld.jar");
-
-        const Example = await lib.com.example.Example;
-        const example = await new Example();
-        await example.hello(); 
-        </script>
-        </div>
     </body>
 </html>
