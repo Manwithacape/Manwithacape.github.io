@@ -63,6 +63,7 @@ body {
     color: var(--text);
     background-color: var(--tertiary);
     text-align: center;
+    padding: 0.5rem, 1rem;
 
     transition: all 0.2s;
 }
@@ -77,7 +78,7 @@ body {
 }
 
 .shadow {
-    box-shadow: rgb(255, 0, 0) 0px 0px 1rem;
+    box-shadow: rgba(44, 44, 44, 0.747) 0px 0px 1rem;
 }
 
 .social-link {
@@ -139,14 +140,19 @@ header {
     padding: 1rem;
     background-color: var(--primary);
     color: var(--white);
-    box-shadow: none;
+    box-shadow: 0px 0px 1rem var(--shadow-color);
 
     position: sticky;
     top: 0%;
     z-index: 1000;
     transition: all 1s, padding 1s 1s;
  
-
+    h1 {
+        a {
+            text-decoration: none;
+            color: var(--text);
+        }
+    }
     nav {
         ul li {
             display: inline;
@@ -218,7 +224,7 @@ main {
     width: 66%;
     margin: auto;
     padding: 0;
-    position: center;
+    height: 100vh;
 }
 
 /* general section */
@@ -232,6 +238,29 @@ section {
     margin: 0 0 1rem 0;
 }
 
+.project-heading {
+    h2 {
+        text-align: center;
+    }
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: var(--text);
+    max-width: 100%;
+    align-items: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        content: cover;
+    }
+}
 #about #about-content {
     display: flex;
     flex-direction: row;
@@ -242,7 +271,7 @@ section {
 
     img {
         width: 30%;
-        height: 30%;
+        /* height: 30%; */
         object-fit: cover;
         object-position: center;
         content: cover;
@@ -264,6 +293,66 @@ section {
     color: var(--text);
     max-width: ;
 }
+
+/* Project card */
+#projects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: var(--text);
+    width: 100%;
+    margin: 0 0 1rem 0;
+}
+.project-card {
+    width: 30rem;
+    margin: 0.5rem 0.5rem;
+    padding: 0;
+
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: center;
+        content: cover;
+    }
+
+    h2 {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        color: white;
+        text-shadow: black 0px 0px 0.5rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    a {
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+        color: white;
+        width: 100%;
+        padding: 1rem;
+
+        text-decoration: none;
+        color: var(--text);
+        background-color: var(--tertiary);
+        text-align: center;
+        font-size: 25px;
+    }
+
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
