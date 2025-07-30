@@ -27,6 +27,13 @@
             "url": "projects/web-projects/nether-portal-calculator/nether-portal-calculator.html",
             "image": "projects/web-projects/nether-portal-calculator/nether-portal-calculator.png",
             "application_logo": "projects/application-images/javascript.png"
+        },
+        {
+            "Title": "Graveyard Shift",
+            "date": "11-02-2025",
+            "url": "projects/music-projects/graveyard-shift/graveyard-shift.html",
+            "image": "projects/music-projects/graveyard-shift/graveyard-shift.png",
+            "application_logo": "projects/application-images/reaper-studio.jpg"
         }
     ]
 }
