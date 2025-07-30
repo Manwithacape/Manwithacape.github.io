@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇳🇿 Daniel Paxton - Nether Portal Calculator</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <script src="../../../scripts/main.js"></script>
+</head>
+<body>
+    <!-- Header Loaded Automatically-->
+    <main>
+        <section class="project-heading">
+            <h1>Nether Portal Calculator</h1>
+            <p> The minecraft nether is a space warping place. Where one block in the nether is equivalent to eight blocks in the over world. This makes using the nether as a mode of fast transport an effective way to get around the overworld. However, in minecraft bedrock portals never seemed to work like their counterparts
+                in the java edition of the game. Bedrock almost always require you rectify the position of one portal to another as the game seems to not place them correctly. This leads to portals creating one way connections and other funky placement. This page has a simple method for finding where your portal should be. 
+            </p>
+           
+        </section>
+
+        <section id="portal-calc" class="project-content" style="display: flex; flex-direction: row; align-items: center;">
+            <!-- Calculator here -->
+            <div class="calculator-panel">
+                <h1 style="text-decoration: underline;"> Portal Position Calculator </h1>
+                    <button id="swap-input"class="button" style="padding: 0.5em 1em"> Swap Input Dimention </button>
+
+                    <script>
+                        // Add event listener to the swap button using its ID
+                        document.getElementById('swap-input').addEventListener('click', function() {
+                            const netherInput = document.getElementById('nether-input');
+                            const overworldInput = document.getElementById('overworld-input');
+                            if (netherInput.style.display === 'none') {
+                                netherInput.style.display = 'block';
+                                overworldInput.style.display = 'none';
+                            } else {
+                                netherInput.style.display = 'none';
+                                overworldInput.style.display = 'block';
+                            }
+                        });
+                    </script>
+                <div id="overworld-input" class="calculator" style="display: none;">
+                    <h3>Overworld coordinates</h3>
+                    <div class="coordinates-input">
+                        <label for="overworld-x">X:</label>
+                        <input class="simpleNumberInput" type="numeric" id="overworld-x" placeholder="X">
+                        <label for="overworld-z">Z:</label>
+                        <input class="simpleNumberInput" type="numeric" id="overworld-z" placeholder="Z">
+                        <button id="calculate-overworld" class="button" style="padding: 0.5em 1em">Go</button>
+                    </div>
+                    <script>
+                        // Add event listeners to the input fields and button
+                        document.getElementById('overworld-x').addEventListener('input', calculateNetherCoords);
+                        document.getElementById('overworld-z').addEventListener('input', calculateNetherCoords);
+                        document.getElementById('calculate-overworld').addEventListener('click', calculateNetherCoords);
+
+                        function calculateNetherCoords() {
+                            // parse empty input as 0 
+                            const overworldX = parseFloat(document.getElementById('overworld-x').value) || 0;
+                            const overworldZ = parseFloat(document.getElementById('overworld-z').value) || 0;
+
+                            // Calculate Nether coordinates
+                            document.getElementById('output-overworld').textContent = '('+(overworldX / 8).toFixed(0) + ', ' + (overworldZ / 8).toFixed(0)+')';
+                        }
+                    </script>
+                    <h3>Place your portal in the nether at:</h3>
+                    <p id="output-overworld">Enter coordinates and press 'Go'</p>
+                </div>
+
+                <div id="nether-input" class="calculator" style="display: block;">
+                    <h3>Nether coordinates</h3>
+                    <div class="coordinates-input">
+                        <label for="nether-x">X:</label>
+                        <input class="simpleNumberInput" type="numeric" id="nether-x" placeholder="X">
+                        <label for="nether-z">Z:</label>
+                        <input class="simpleNumberInput" type="numeric" id="nether-z" placeholder="Z">
+                        <button id="calculate-nether" class="button" style="padding: 0.5em 1em">Go</button>
+                    </div>
+                    <script>
+                        // Add event listeners to the input fields and button
+                        document.getElementById('nether-x').addEventListener('input', calculateOverworldCoords);
+                        document.getElementById('nether-z').addEventListener('input', calculateOverworldCoords);
+                        document.getElementById('calculate-nether').addEventListener('click', calculateOverworldCoords);
+
+                        function calculateOverworldCoords() {
+                            // parse empty input as 0 
+                            const netherX = parseFloat(document.getElementById('nether-x').value) || 0;
+                            const netherZ = parseFloat(document.getElementById('nether-z').value) || 0;
+
+                            // Calculate Overworld coordinates
+                            document.getElementById('output-nether').textContent = '('+(netherX * 8).toFixed(0) + ', ' + (netherZ * 8).toFixed(0)+')';
+                        }
+                    </script>
+                    <h3>Place your portal in the overworld at:</h3>
+                    <p id="output-nether">Enter coordinates and press 'Go'</p>
+                </div>
+            </div>      
+        </section>
+
+            <section class="project-heading">
+                <h1>How to use the Nether Portal Calculator.</h1>
+                
+                <h3>Step 1: What are we trying to do?</h3>
+                <p> In what dimention are our target coordinates in? nether or overworld? Press 'Swap Input Dimention' to get into the correct dimentional input mode.</p>
+
+                <h3>step 2: Find your coordinates ingame.</h3>
+                <p> In java this can be done using the f3 screen and finding the 'x, y, z' coordinates. In bedrock this can be done by enabling coordinates in the world settings. The y coordinate is not relevent here so only note down the first and last numbers.</p>
+
+                <h3>Step 3: Enter your coordinates.</h3>
+                <p> Making sure the correct dimention is selected. Enter your coordinate and press 'go'</p>
+
+                <h3>step 4: Place your portal.</h3>
+                
+                <p>Using the diagram place and light your nether portal. ensuring one of the base blocks of the portal are on the coordinates. Happy dimention hopping.</p>
+                <img src="../../../images/portal-diagram-rs.png" alt="Portal Diagram" >
+            </div>
+    </main>
+</body>
+</html>
