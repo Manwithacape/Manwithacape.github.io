@@ -31,7 +31,7 @@ body {
     margin: 0;
     padding: 0;
     color: var(--text);
-    background: radial-gradient(circle at bottom right, #301b03, #0a0400);
+    background: radial-gradient(circle at center right, #361e01, #0a0703);
     height: 100%;
     width: 100%;
     overflow-x: hidden;

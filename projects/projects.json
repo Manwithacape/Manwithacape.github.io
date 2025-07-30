@@ -2,28 +2,28 @@
     "projects": [
         {
             "Title": "Natsukashii",
-            "date": "30-03-2025",
+            "date": "26-12-2024",
             "url": "projects/music-projects/natsukashii/natsukashii.html",
             "image": "projects/music-projects/natsukashii/natsukashii.png",
             "application_logo": "projects/application-images/reaper-studio.jpg"
         },
         {
             "Title": "Raycaster",
-            "date": "30-03-2025",
+            "date": "18-08-2024",
             "url": "projects/gamemaker-projects/raycaster/raycaster.html",
             "image": "projects/gamemaker-projects/raycaster/raycaster.png",
             "application_logo": "projects/application-images/gamemaker.png"
         },
         {
             "Title": "Spaghetti Coder",
-            "date": "30-03-2025",
+            "date": "12-11-2024",
             "url": "projects/gamemaker-projects/spaghetti-coder/spaghetti-coder.html",
             "image": "projects/gamemaker-projects/spaghetti-coder/spaghetti-coder.png",
             "application_logo": "projects/application-images/gamemaker.png"
         },
         {
             "Title": "Nether Portal Calculator",
-            "date": "30-03-2025",
+            "date": "22-06-2025",
             "url": "projects/web-projects/nether-portal-calculator/nether-portal-calculator.html",
             "image": "projects/web-projects/nether-portal-calculator/nether-portal-calculator.png",
             "application_logo": "projects/application-images/javascript.png"

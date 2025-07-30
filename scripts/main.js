@@ -69,6 +69,14 @@ function loadProjectCards(_json_path) {
             // Access the projects array from the data object
             const projectsArray = data.projects || data;
             
+            // sort the projects by date newest to oldest projectArray[i].date stored as "DD-MM-YYYY"
+            projectsArray.sort((a, b) => {
+                const dateA = new Date(a.date.split('-').reverse().join('-'));
+                const dateB = new Date(b.date.split('-').reverse().join('-'));
+                return dateB - dateA; // Sort in descending order
+            });
+
+
             for (const project of projectsArray) {
                 const projectCard = createProjectCard(
                     project.Title,
