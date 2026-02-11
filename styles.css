@@ -214,6 +214,8 @@ footer {
     p {
         text-align: justify;
         margin-bottom: 0.5em;
+        max-width: 66%;
+        align-self: center;
     }
 
     h3 {
@@ -224,6 +226,22 @@ footer {
     img {
         max-width: 50%;
         align-self: center;
+    }
+
+    h3 {
+        text-align: center;
+    }
+    ul {
+        max-width: 66%;
+        list-style-type: disc;
+        margin-left: 2rem;
+        align-items: center;
+        align-self: center;
+
+        li {
+            margin-bottom: 0.5em;
+            text-align: left;
+        }
     }
 }
 #portal-calc {
