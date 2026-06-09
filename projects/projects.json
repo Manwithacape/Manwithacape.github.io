@@ -41,6 +41,13 @@
             "url": "projects/unity-projects/SolWar/SolWar.html",
             "image": "projects/unity-projects/SolWar/SolWar.png",
             "application_logo": "projects/application-images/unity.jpg" 
+        },
+        {
+            "Title": "Time Rouge",
+            "date": "09-06-2026",
+            "url": "projects/unity-projects/TimeRouge/TimeRouge.html",
+            "image": "projects/unity-projects/TimeRouge/Screenshots/screenshot 4.png",
+            "application_logo": "projects/application-images/unity.jpg" 
         }
     ]
 }

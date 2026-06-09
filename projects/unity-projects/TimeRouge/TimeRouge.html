@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇳🇿 Daniel Paxton - Time Rouge</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+        /* Override Unity CSS to integrate with page layout */
+        #unity-container.unity-desktop {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            transform: none !important;
+            margin: 20px auto;
+            width: 800px;
+            height: 800px;
+        }
+        
+        #unity-canvas {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        #unity-footer {
+            display: none !important;
+        }
+        
+        #unity-webgl-logo {
+            display: none !important;
+        }
+        
+        #unity-build-title {
+            display: none !important;
+        }
+
+        /* Flipbook Gallery Styles */
+        .flipbook-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+
+        .flipbook-button {
+            background-color: #333333;
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 0;
+            transition: all 0.2s;
+            user-select: none;
+            flex-shrink: 0;
+            height: 100%;
+            aspect-ratio: auto;
+            margin: 0;
+        }
+
+        .flipbook-button:hover {
+            background-color: var(--text);
+            color: var(--tertiary);
+            text-shadow: var(--tertiary) 0px 0px 1rem;
+        }
+
+        .flipbook-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            display: none;
+        }
+
+        .flipbook-viewer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            width: 100%;
+            max-width: none;
+            height: 600px;
+            background-color: black;
+        }
+
+        .flipbook-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: none;
+        }
+
+        .flipbook-image.active {
+            display: block;
+        }
+
+        .flipbook-counter {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        /* About Section Styling */
+        .project-heading:first-of-type {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            border-left: 4px solid var(--tertiary);
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-heading:first-of-type h1 {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: none;
+            text-align: center;
+            width: 100%;
+        }
+
+        .project-heading:first-of-type > p {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #333;
+            width: 100%;
+        }
+
+        .project-heading:first-of-type h3 {
+            color: var(--text);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--tertiary);
+            padding-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        .project-heading:first-of-type h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .list-container {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .list-container > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #keyfeature_side,
+        #cheatcode_side {
+            width: 100%;
+        }
+
+        .project-heading:first-of-type ul {
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 0;
+        }
+
+        .project-heading:first-of-type li {
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .project-heading:first-of-type li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Team Section Styling */
+        .team-credits {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            width: 100%;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member h4 {
+            color: var(--text);
+            font-size: 1.2rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: bold;
+        }
+
+        .team-member p {
+            color: var(--tertiary);
+            font-size: 0.95rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Spacer for scroll positioning */
+        .spacer {
+            height: 50vh;
+            width: 100%;
+        }
+    </style>
+    <script src="../../../scripts/main.js"></script>
+</head>
+<body>
+   <!-- Header Loaded Automatically-->
+    <main>
+        <section class="project-heading">
+            <h1>Time Rouge</h1>
+              <p>
+                  <strong>Time Rouge</strong> is a fast-paced roguelite shooter where you are
+                  relentlessly hunted by time-traveling bounty hunters. Survive against
+                  waves of enemies pulled from fractured timelines — from futuristic shock
+                  troopers to maddened vikings sent back to slow you down.
+              </p>
+
+              <p>
+                  Scavenge powerful weapons with unpredictable modifications
+                  and acquire game-changing buffs with risky trade-offs. Adapt when
+                  you're forced to fight with whatever you can find. Every run is a
+                  desperate scramble to stay alive.
+              </p>
+
+              <p>
+                  When the chase ends, grow stronger. Upgrade your meta
+                  progression and prepare for the next attempt — because time is always
+                  closing in.
+              </p>
+
+              <div class="list-container">
+                <div id="keyfeature_side">
+                  <h3>Key Features</h3>
+                  <ul>
+                      <li>Fast Paced Shooter Combat</li>
+                      <li>Challenging Gameplay</li>
+                      <li>14 Unique Weapons</li>
+                      <li>8 Game Changing Buff Items</li>
+                      <li>3 Engaging Enemy Types</li>
+                      <li>Weapon Modifications</li>
+                      <li>Cheats and Secrets</li>
+                      <li>Hand Drawn Visual Assets</li>
+                      <li>Custom Composed Music</li>
+                      <li>High Quality GUI/UI</li>
+                  </ul>
+                </div>
+
+                <div id="cheatcode_side">
+                  <h3>Cheat Codes</h3>
+                  <ul>
+                      <li><strong>idkfa</strong> - Gives a BFG9000, You Can'T JuSt Shoot A holE in tHE SUrFaCE OF Mars!</li>
+                      <li><strong>ammo</strong> - Infinite ammo, real keys full ammo.</li>
+                      <li><strong>marking</strong> - Makes the player invicible, Are you sure?</li>
+                      <li><strong>overpowered</strong> - Gives player gun with 100 mods, What is this skyrim?</li>
+                      <li><strong>coffee</strong> - Have you had your morning brew yet?</li>
+                      <li><strong>zoom</strong> - im fast as flip boi!</li>
+                  </ul>
+                </div>
+              </div>
+        </section>
+
+        <section class="project-heading">
+          <h2>Team</h2>
+          <div class="team-credits">
+              <div class="team-member">
+                  <h4>Daniel Paxton</h4>
+                  <p>Team Manager, Art, and Music</p>
+              </div>
+              <div class="team-member">
+                  <h4>Jari Ross</h4>
+                  <p>Designer and Programmer</p>
+              </div>
+              <div class="team-member">
+                  <h4>Judy Ainuu</h4>
+                  <p>UI/UX Design and Programmer</p>
+              </div>
+          </div>
+        </section>
+
+        <section class="project-content">
+            <div id="unity-container" class="unity-desktop">
+                <canvas id="unity-canvas" width=800 height=800 tabindex="-1"></canvas>
+                <div id="unity-loading-bar">
+                    <div id="unity-logo"></div>
+                    <div id="unity-progress-bar-empty">
+                        <div id="unity-progress-bar-full"></div>
+                    </div>
+                </div>
+                <div id="unity-warning"></div>
+                <div id="unity-footer">
+                    <div id="unity-webgl-logo"></div>
+                    <div id="unity-build-title">Time Rouge</div>
+                </div>
+            </div>
+ 
+        </section>
+
+        <section class="project-heading">
+          <h2>Screenshots</h2>
+          <div class="flipbook-container">
+              <button class="flipbook-button" id="prevBtn" onclick="changeImage(-1)">❮</button>
+              <div class="flipbook-viewer">
+                  <img class="flipbook-image active" src="Screenshots/screenshot 0.png" alt="Time Rouge Screenshot 1" />
+                  <img class="flipbook-image" src="Screenshots/screenshot 1.png" alt="Time Rouge Screenshot 2" />
+                  <img class="flipbook-image" src="Screenshots/screenshot 2.png" alt="Time Rouge Screenshot 3" />
+                  <img class="flipbook-image" src="Screenshots/screenshot 3.png" alt="Time Rouge Screenshot 4" />
+                  <img class="flipbook-image" src="Screenshots/screenshot 4.png" alt="Time Rouge Screenshot 5" />
+                  <img class="flipbook-image" src="Screenshots/screenshot 5.png" alt="Time Rouge Screenshot 6" />
+                  <img class="flipbook-image" src="Screenshots/screenshot 6.png" alt="Time Rouge Screenshot 7" />
+                  <img class="flipbook-image" src="Screenshots/screenshot 7.png" alt="Time Rouge Screenshot 8" />
+              </div>
+              <button class="flipbook-button" id="nextBtn" onclick="changeImage(1)">❯</button>
+          </div>
+          <div class="flipbook-counter">
+              <span id="imageCounter">1 of 8</span>
+          </div>
+        </section>
+
+        <div class="spacer"></div>
+    </main>
+
+    <script>
+      // Flipbook Navigation
+      let currentImageIndex = 0;
+      const images = document.querySelectorAll('.flipbook-image');
+      const totalImages = images.length;
+
+      function updateFlipbook() {
+        // Hide all images
+        images.forEach(img => img.classList.remove('active'));
+        
+        // Show current image
+        images[currentImageIndex].classList.add('active');
+        
+        // Update counter
+        document.getElementById('imageCounter').textContent = `${currentImageIndex + 1} of ${totalImages}`;
+        
+        // Update button states
+        document.getElementById('prevBtn').disabled = currentImageIndex === 0;
+        document.getElementById('nextBtn').disabled = currentImageIndex === totalImages - 1;
+      }
+
+      function changeImage(direction) {
+        currentImageIndex += direction;
+        if (currentImageIndex < 0) currentImageIndex = 0;
+        if (currentImageIndex >= totalImages) currentImageIndex = totalImages - 1;
+        updateFlipbook();
+      }
+
+      // Initialize flipbook
+      updateFlipbook();
+
+      // Unity container setup
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Build.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/Build.data",
+        frameworkUrl: buildUrl + "/Build.framework.js",
+        codeUrl: buildUrl + "/Build.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Daniel Paxton_Manwithacape",
+        productName: "Time Rouge",
+        productVersion: "1.0",
+        showBanner: unityShowBanner,
+      };
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+        canvas.style.width = "800px";
+        canvas.style.height = "800px";
+      }
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          // Fullscreen button functionality removed
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+
+      document.body.appendChild(script);
+    </script>
+</body>
+</html>
